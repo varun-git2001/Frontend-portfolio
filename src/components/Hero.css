@@ -1,0 +1,235 @@
+/* Hero Section */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 20px;
+    height: 80vh;
+    text-align: center;
+    background: linear-gradient(135deg, #E0F2F1, #F8F9FA); 
+  }
+  
+  .hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .hero-text {
+    max-width: 50%;
+    display: flex;
+    position: relative;
+    left: -100px; 
+    color: #2C3E50; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  #hero span {
+    color: #197c7c; 
+  }
+  
+  .hero-text p.typing {
+    font-size: 1.5rem;
+    color: #34495E;
+    margin-bottom: 25px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    border-right: 4px solid #34495E;
+    width: 0;
+    animation: typing 2s steps(30) forwards, blink 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  .hero-text .links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  /* Hero Image Styling */
+  .hero-image img 
+  {
+    width: 100%;
+    max-width: 350px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 250px;
+    border-radius: 50%; /* Makes it circular */
+    background-color: #00796B;
+    object-fit: cover; /* Ensures the image covers the circular area */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hero-image img:hover 
+{
+    transform: scale(1.01);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures full-page height */
+    margin: 0;
+  }
+  
+  /* Social Icons */
+  .social-icons {
+    position: absolute;
+    bottom: 20px;  /* 20px above the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .social-icons a img {
+    width: 35px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons a img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Buttons Styling */
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #00796B; /* Fixed deep teal color */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .btn:hover {
+    background: #004D40; /* Slightly darker teal */
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+@media (max-width: 1024px) {
+  #hero {
+    flex-direction: column;
+    height: 100hv;
+    padding: 80px 20px;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    left: 0;
+    margin-left: 0;
+    margin-top: 100px;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p.typing {
+    font-size: 1.3rem;
+  }
+
+  .hero-image img {
+    max-width: 250px;
+    margin-right: 0;
+    margin-top: 20px;
+  }
+
+  .social-icons {
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    padding: 60px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p.typing {
+    font-size: 1.2rem;
+  }
+
+  .hero-text .links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-image img {
+    max-width: 200px;
+  }
+
+  .social-icons {
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero {
+    padding: 40px 10px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text p.typing {
+    font-size: 1rem;
+  }
+
+  .hero-image img {
+    max-width: 180px;
+  }
+
+  .social-icons a img {
+    width: 30px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}

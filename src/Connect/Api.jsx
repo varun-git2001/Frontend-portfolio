@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Base API configuration
 const API = axios.create({
-  baseURL: "http://localhost:8080", 
+  baseURL: "http://localhost:8080",
   headers: {
     "Content-Type": "application/json",
   },
@@ -13,12 +13,7 @@ const API = axios.create({
  * @returns {Promise<Object>}
  */
 export const fetchUserDetails = async () => {
-  try {
-    const response = await API.get("/user");
-    return response.data;
-  } catch (error) {
-    handleApiError(error);
-  }
+  return await apiRequest("GET", "/user");
 };
 
 /**
@@ -26,12 +21,16 @@ export const fetchUserDetails = async () => {
  * @returns {Promise<Array>}
  */
 export const fetchProjects = async () => {
-  try {
-    const response = await API.get("/project");
-    return response.data;
-  } catch (error) {
-    handleApiError(error);
-  }
+  return await apiRequest("GET", "/project");
+};
+
+/**
+ * Fetch a project by ID
+ * @param {number} id - Project ID
+ * @returns {Promise<Object>}
+ */
+export const fetchProjectById = async (id) => {
+  return await apiRequest("GET", `/project/${id}`);
 };
 
 /**
@@ -39,26 +38,15 @@ export const fetchProjects = async () => {
  * @returns {Promise<Array>}
  */
 export const fetchSkills = async () => {
-  try {
-    const response = await API.get("/skill");
-    return response.data;
-  } catch (error) {
-    handleApiError(error);
-  }
+  return await apiRequest("GET", "/skill");
 };
 
 /**
  * Fetch all education details
  * @returns {Promise<Array>}
  */
-
 export const fetchEducation = async () => {
-  try {
-    const response = await API.get("/education");
-    return response.data;
-  } catch (error) {
-    handleApiError(error);
-  }
+  return await apiRequest("GET", "/education");
 };
 
 /**
@@ -67,11 +55,35 @@ export const fetchEducation = async () => {
  * @returns {Promise<Object>}
  */
 export const sendContactForm = async (formData) => {
+  return await apiRequest("POST", "/contact", formData);
+};
+
+/**
+ * Fetch all users
+ * @returns {Promise<Array>}
+ */
+export const fetchUsers = async () => {
+  return await apiRequest("GET", "/api/users");
+};
+
+/**
+ * Generic API request handler
+ * @param {string} method - HTTP method (GET, POST, PUT, DELETE)
+ * @param {string} url - API endpoint
+ * @param {Object} [data] - Request payload (for POST/PUT)
+ * @returns {Promise<Object>}
+ */
+const apiRequest = async (method, url, data = null) => {
   try {
-    const response = await API.post("/contact", formData);
+    const response = await API.request({
+      method,
+      url,
+      data,
+    });
     return response.data;
   } catch (error) {
     handleApiError(error);
+    return null; // Ensure function always returns a value
   }
 };
 
@@ -82,14 +94,11 @@ export const sendContactForm = async (formData) => {
 const handleApiError = (error) => {
   console.error("API Error:", error);
   if (error.response) {
-    // Server responded with a status other than 2xx
     console.error("Response:", error.response.data);
     alert(`Error: ${error.response.data.message || "Something went wrong!"}`);
   } else if (error.request) {
-    // Request was made but no response received
     alert("Error: No response received from the server.");
   } else {
-    // Something else caused the error
     alert(`Error: ${error.message}`);
   }
 };

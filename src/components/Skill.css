@@ -1,0 +1,142 @@
+/* Skills Section */
+#skills {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #E0F2F1, #F8F9FA);
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.skill-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skill-icon {
+  width: 45px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#skills .skill-card:hover {
+  transform: scale(1.05);
+}
+
+/* Footer Section */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Responsive Design for screens up to 768px */
+@media (max-width: 768px) {
+  /* Heading Section */
+  .heading {
+    font-size: 1.8rem;  
+    margin-top: 100px;  
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row on smaller screens */
+    gap: 20px;  /* Maintain a gap between cards */
+  }
+
+  .skill-card {
+    padding: 12px;  /* Slightly reduce padding to fit better */
+  }
+
+  .skill-icon {
+    width: 40px;  /* Make icons slightly smaller */
+  }
+
+  /* Footer */
+  footer {
+    padding: 15px;  /* Reduce padding for footer on smaller screens */
+  }
+}
+
+/* Responsive Design for screens up to 480px */
+@media (max-width: 480px) {
+  /* Heading Section */
+  .heading {
+    font-size: 1.6rem; 
+    margin-top: 50px;  
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    grid-template-columns: 1fr;  /* One card per row on very small screens */
+    gap: 20px;  /* Maintain gap between cards */
+  }
+
+  .skill-card {
+    padding: 10px;  /* Reduce padding further on very small screens */
+  }
+
+  .skill-icon {
+    width: 35px;  /* Make icons smaller */
+  }
+
+  /* Footer */
+  footer {
+    padding: 10px;  /* Further reduce footer padding for small screens */
+  }
+}
+
+/* Responsive Design for screens between 768px and 820px */
+@media (min-width: 768px) and (max-width: 820px) {
+  /* Heading Section */
+  .heading {
+    font-size: 1.9rem;
+    margin-top: 80px;  /* Adjust margin for medium-sized screens */
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+    gap: 20px;  /* Maintain gap between cards */
+  }
+
+  .skill-card {
+    padding: 14px;  /* Adjust padding for better fitting */
+  }
+
+  .skill-icon {
+    width: 42px;  /* Adjust icon size */
+  }
+
+  /* Footer */
+  footer {
+    padding: 18px;  /* Adjust footer padding */
+  }
+}

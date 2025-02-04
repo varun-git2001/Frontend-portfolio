@@ -1,0 +1,87 @@
+/* General Header Styling */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98%;
+  background: #333;
+  color: #fff;
+  padding: 20px 10px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content:  flex-end;
+}
+
+
+
+/* Navigation Menu */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #00bcd4;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: white;
+  margin: 5px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #333;
+    text-align: center;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out; /* Smooth slide effect */
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  nav.active {
+    max-height: 300px; /* Expands menu when active */
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+

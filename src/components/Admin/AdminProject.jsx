@@ -132,8 +132,8 @@ const ProjectSection = () => {
       </button>
 
       {/* Projects List in Table Format */}
-      <div className="table-container">
-        <table className="projects-table">
+      <div className="container-table">
+        <table className="table-projects">
           <thead>
             <tr>
               <th>Project Name</th>

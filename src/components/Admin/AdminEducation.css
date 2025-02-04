@@ -1,87 +1,31 @@
-/* General popup styles */
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+/* General layout for admin page */
+.admin-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    height: 100vh;
+    background-color: #f4f4f4;
 }
 
-.popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    max-width: 90%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+/* Education content area */
+.education-content {
+    margin-left: 250px; /* Reserve space for the sidebar */
+    padding: 30px;
+    flex-grow: 1;
 }
 
-/* Responsive styling for small screens */
-@media (max-width: 480px) {
-    .popup-content {
-        width: 90%; /* Adjust width for smaller screens */
-        padding: 15px; /* Reduce padding for mobile screens */
-    }
-}
-
-/* Popup content heading */
-.popup-content h3 {
-    margin: 0;
-    font-size: 20px;
+/* Heading */
+.education-content h2 {
+    font-size: 28px;
     color: #333;
-    text-align: center;
-}
-
-.popup-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 5px;
-    box-sizing: border-box;
-}
-
-/* General popup button styles */
-.popup-button, .cancel-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Ensure both buttons take up full width */
-}
-
-/* Specific button colors */
-.popup-button {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.popup-button:hover {
-    background-color: #45a049;
+    margin-bottom: 20px;
 }
 
 
-/* Fade-out animation for table */
-.fade-out {
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
-}
-
+/* Table container styling */
 .table-container {
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -103,30 +47,33 @@
     font-weight: bold;
 }
 
-.edit-icon, .delete-icon {
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.edit-icon:hover {
-    color: #4CAF50;
-}
-
-.delete-icon:hover {
-    color: #f44336;
-}
-
-.add-button {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.projects-table tr {
     transition: background-color 0.3s ease;
 }
 
-.add-button:hover {
-    background-color: #0056b3;
+.projects-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Fade-out animation */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .education-content {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 }

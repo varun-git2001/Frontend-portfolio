@@ -22,7 +22,7 @@ const EducationSection = ({ deletingId }) => {
     };
 
     fetchEducation();
-  }, []); // Empty dependency array ensures it only runs once when the component mounts
+  }, []); 
 
   // Handle adding a new education entry
   const handleAdd = async () => {
@@ -81,44 +81,44 @@ const EducationSection = ({ deletingId }) => {
           <FaPlus /> Add Education
         </button>
 
-        {/* Reuse popup modal for adding/editing education */}
+        
         {showPopup && (
-          <div className="popup-overlay">
-            <div className="popup-content">
-              <h3>{editing ? "Edit Education" : "Add Education"}</h3>
-              <input
-                type="text"
-                name="institution"
-                value={newEducation.institution}
-                placeholder="Institution"
-                onChange={handleChange}
-                className="popup-input"
-              />
-              <input
-                type="text"
-                name="degree"
-                value={newEducation.degree}
-                placeholder="Degree"
-                onChange={handleChange}
-                className="popup-input"
-              />
-              <input
-                type="text"
-                name="duration"
-                value={newEducation.duration}
-                placeholder="Duration (e.g., 2018-2022)"
-                onChange={handleChange}
-                className="popup-input"
-              />
-              <button className="popup-button" onClick={editing ? handleEdit : handleAdd}>
-                {editing ? "Update Education" : "Add Education"}
-              </button>
-              <button className="popup-button cancel-button" onClick={() => setShowPopup(false)}>
-                Cancel
-              </button>
-            </div>
-          </div>
-        )}
+  <div className="modal">
+    <div className="modal-content">
+      <h3>{editing ? "Edit Education" : "Add Education"}</h3>
+      <input
+        type="text"
+        name="institution"
+        value={newEducation.institution}
+        placeholder="Institution"
+        onChange={handleChange}
+        className="modal-input"
+      />
+      <input
+        type="text"
+        name="degree"
+        value={newEducation.degree}
+        placeholder="Degree"
+        onChange={handleChange}
+        className="modal-input"
+      />
+      <input
+        type="text"
+        name="duration"
+        value={newEducation.duration}
+        placeholder="Duration (e.g., 2018-2022)"
+        onChange={handleChange}
+        className="modal-input"
+      />
+      <button className="save-button" onClick={editing ? handleEdit : handleAdd}>
+        {editing ? "Update Education" : "Add Education"}
+      </button>
+      <button className="cancel-button" onClick={() => setShowPopup(false)}>
+        Cancel
+      </button>
+    </div>
+  </div>
+)}
 
         <div className="table-container">
           <table className="projects-table">

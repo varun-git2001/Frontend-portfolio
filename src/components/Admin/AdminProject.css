@@ -1,51 +1,97 @@
+/* Ensure that the overall layout accounts for sidebar */
+.container-table {
+    display: flex;
+    margin-left: 250px; /* Adjust this width according to the sidebar's width */
+    width: calc(100% - 250px); /* The table will take the remaining space after sidebar */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Table Styles */
+  .table-projects {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table-projects th, .table-projects td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table-projects th {
+    background-color: #f4f4f4;
+  }
+  
+  /* Styles for edit and delete icons */
+  .edit-icon, .delete-icon {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .edit-icon:hover, .delete-icon:hover {
+    color: #007bff;
+  }
+
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
+  .modal input {
+    width: 100%;
+    padding: 10px 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  } 
+  
   .modal-content {
-    background-color: white;
-    padding: 30px; /* Increased padding for more space inside */
-    border-radius: 8px;
-    max-width: 700px; /* Increased max-width for larger modal */
-    width: 90%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding subtle shadow for better visibility */
+    background: white;
+    padding: 30px; /* Reduce padding to make it compact */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 600px; /* Set a fixed width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures everything inside is centered */
   }
   
   .modal-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px; /* Increased space between buttons and content */
-  }
-  
-  .save-button,
-  .cancel-button {
-    padding: 10px 15px; /* Slightly larger button size */
-    cursor: pointer;
-    border-radius: 5px; /* Rounded corners for buttons */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    margin-top: 10px;
   }
   
   .save-button {
-    background-color: #28a745;
+    background: green;
     color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background: red;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
   }
   
   .save-button:hover {
     background-color: #218838; /* Darker shade of green */
     transform: scale(1.05); /* Slight zoom effect on hover */
-  }
-  
-  .cancel-button {
-    background-color: #dc3545;
-    color: white;
   }
   
   .cancel-button:hover {

@@ -21,7 +21,7 @@ const Projects = () => {
           projects.map((project) => (
             <div className="project" key={project.id}>
               <h3>{project.title}</h3>
-              <p>{project.description.substring(0, 50)}...</p>
+              <p>{project.description.substring(0, 200)}...</p>
               {/* Link styled as button */}
               <Link to={`/projects/${project.id}`} className="view-details">
                 View Details

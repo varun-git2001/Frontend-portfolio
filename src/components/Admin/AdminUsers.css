@@ -1,0 +1,7 @@
+/* General layout for admin page */
+.admin-container {
+    display: flex;
+    flex-direction: column; /* Column layout for mobile and small screens */
+    background-color: #f4f4f4;
+    height: 100%; /* Allow full height */
+}

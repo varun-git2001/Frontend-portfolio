@@ -12,6 +12,8 @@ const Header = () => {
         <div></div>
         <div></div>
         <div></div>
+
+
       </div>
 
       {/* Navigation Links */}
@@ -21,6 +23,7 @@ const Header = () => {
           <li><Link to="/skills" onClick={() => setMenuOpen(false)}>Skills</Link></li>
           <li><Link to="/education" onClick={() => setMenuOpen(false)}>Education</Link></li>
           <li><Link to="/projects" onClick={() => setMenuOpen(false)}>Projects</Link></li>
+
         </ul>
       </nav>
     </header>

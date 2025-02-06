@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -29,6 +30,11 @@ const AppContent = () => {
   
   // Hide navbar in admin routes
   const hideNavbar = location.pathname.startsWith("/admin") || location.pathname.startsWith("/dashboard");
+  const ProtectedRoute = ({ children }) => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  
+    return isLoggedIn ? children : <Navigate to="/login" />;
+  };
 
   return (
     <>
@@ -40,12 +46,47 @@ const AppContent = () => {
         <Route path="/education" element={<Education />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:id" element={<ProjectDetail />} />
-        <Route path="/admin" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboard/education" element={<AdminEducation />} />
-        <Route path="/dashboard/projects" element={<AdminProject />} />
-        <Route path="/dashboard/skills" element={<AdminSkill />} />
-        <Route path="/dashboard/users" element={<AdminUsers />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/education"
+          element={
+            <ProtectedRoute>
+              <AdminEducation />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/projects"
+          element={
+            <ProtectedRoute>
+              <AdminProject />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/skills"
+          element={
+            <ProtectedRoute>
+              <AdminSkill />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/users"
+          element={
+            <ProtectedRoute>
+              <AdminUsers />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );

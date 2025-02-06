@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 100px 20px;
-    height: 80vh;
+    height: 100vh;
     text-align: center;
     background: linear-gradient(135deg, #E0F2F1, #F8F9FA); 
   }
@@ -175,7 +175,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   #hero {
     padding: 60px 20px;
   }
@@ -194,7 +194,9 @@
   }
 
   .hero-image img {
-    max-width: 200px;
+    max-width: 300px;
+    margin-bottom: 350px;
+    
   }
 
   .social-icons {

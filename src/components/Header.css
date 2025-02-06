@@ -3,7 +3,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 98%;
+  width: 100%;
   background: #333;
   color: #fff;
   padding: 20px 10px;
@@ -12,8 +12,6 @@ header {
   align-items: center;
   justify-content:  flex-end;
 }
-
-
 
 /* Navigation Menu */
 nav ul {
@@ -45,6 +43,11 @@ nav ul li a:hover {
   flex-direction: column;
   cursor: pointer;
   padding: 5px;
+  width: 30px;
+  height: 3px;
+  background: white;
+  margin: 2px 0;
+  transition: transform 0.3s ease-in-out;
 }
 
 .hamburger div {
@@ -76,7 +79,8 @@ nav ul li a:hover {
   }
 
   nav.active {
-    max-height: 300px; /* Expands menu when active */
+    max-height: 200px; /* Expands menu when active */
+    border-radius: 5px;
   }
 
   .hamburger {

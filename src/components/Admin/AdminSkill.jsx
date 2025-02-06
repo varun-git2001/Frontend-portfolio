@@ -124,22 +124,27 @@ const SkillSection = () => {
 
         {/* Modal for Adding/Editing Skill */}
         {isModalOpen && (
-          <div className="modal">
-            <div className="modal-content">
-              <h3>{isEditing ? "Edit Skill" : "Add New Skill"}</h3>
-              <input
-                type="text"
-                placeholder="Enter skill name"
-                value={newSkill}
-                onChange={(e) => setNewSkill(e.target.value)}
-              />
-              <div className="modal-buttons">
-                <button className="save-button" onClick={handleSave}>Save</button>
-                <button className="cancel-button" onClick={() => setIsModalOpen(false)}>Cancel</button>
-              </div>
-            </div>
-          </div>
-        )}
+  <div className="modal">
+    <div className="modal-content">
+      <h3>{isEditing ? "Edit Skill" : "Add New Skill"}</h3>
+      <input
+        type="text"
+        name="skill"
+        value={newSkill}
+        placeholder="Enter skill name"
+        onChange={(e) => setNewSkill(e.target.value)}
+        className="modal-input"
+      />
+      <button className="save-button" onClick={handleSave}>
+        {isEditing ? "Update Skill" : "Add Skill"}
+      </button>
+      <button className="cancel-button" onClick={() => setIsModalOpen(false)}>
+        Cancel
+      </button>
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProjectById } from "../Connect/Api"; 
 
-const BASE_URL = "http://localhost:8080/"; // Your backend URL
+const BASE_URL = "http://localhost:8080";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -13,6 +13,11 @@ const ProjectDetail = () => {
       try {
         const fetchedProject = await fetchProjectById(id); 
         setProject(fetchedProject);
+      
+        if (fetchedProject.image) {
+          console.log("Image URL:", `${BASE_URL}${fetchedProject.image}`);
+        }
+
       } catch (error) {
         console.error("Error fetching project:", error);
       }
@@ -29,7 +34,7 @@ const ProjectDetail = () => {
       </div>
       <div className="card-body">
         <p>{project.description}</p>
-        {/* Dynamically display the project image */}
+        
         {project.image && (
           <img 
             src={`${BASE_URL}${project.image}`} 

@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #f4f6f9;
+  background-color: #f4f4f4;
   color: #2c3e50;
   height: 100vh;
   overflow: hidden;
@@ -22,6 +22,7 @@ body {
 /* Content Area */
 .content {
   flex: 1;
+  margin-top: 50px;
   margin-left: 250px; /* Matches sidebar width */
   padding: 30px;
   overflow-y: auto;
@@ -117,24 +118,27 @@ h2 {
   transition: opacity 0.5s ease-out;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .dashboard {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Ensure text is centered */
   }
 
   .content {
-    margin-left: 0;
-    padding: 20px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    height: 100%;
+    width: 100%;
   }
 
   .card-container {
-    grid-template-columns: 1fr;
+    max-width: 90%;
   }
 }
+

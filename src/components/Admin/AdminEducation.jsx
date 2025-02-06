@@ -120,51 +120,49 @@ const EducationSection = ({ deletingId }) => {
   </div>
 )}
 
-        <div className="table-container">
-          <table className="projects-table">
-            <thead>
-              <tr>
-                <th>Institution</th>
-                <th>Degree</th>
-                <th>Duration</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {educationData.length > 0 ? (
-                educationData.map((edu) => (
-                  <tr key={edu.id} className={deletingId === edu.id ? "fade-out" : ""}>
-                    <td>{edu.institution}</td>
-                    <td>{edu.degree}</td>
-                    <td>{edu.duration}</td> {/* Displaying the duration */}
-                    <td>
-                      <FaEdit
-                        className="edit-icon"
-                        onClick={() => {
-                          setEditing(edu);
-                          setNewEducation({
-                            institution: edu.institution,
-                            degree: edu.degree,
-                            duration: edu.duration, // Set duration here
-                          });
-                          setShowPopup(true);
-                        }}
-                      />
-                      <FaTrash
-                        className="delete-icon"
-                        onClick={() => handleDelete(edu.id)}
-                      />
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="4">No education data found</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+<div className="table-container">
+  <table className="projects-table">
+    <thead>
+      <tr>
+        <th>Institution</th>
+        <th>Degree</th>
+        <th>Duration</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {educationData.length > 0 ? (
+        educationData.map((edu) => (
+          <tr key={edu.id} className={deletingId === edu.id ? "fade-out" : ""}>
+            <td>{edu.institution}</td>
+            <td>{edu.degree}</td>
+            <td>{edu.duration}</td>
+            <td>
+              <FaEdit
+                className="edit-icon"
+                onClick={() => {
+                  setEditing(edu);
+                  setNewEducation({
+                    institution: edu.institution,
+                    degree: edu.degree,
+                    duration: edu.duration,
+                  });
+                  setShowPopup(true);
+                }}
+              />
+              <FaTrash className="delete-icon" onClick={() => handleDelete(edu.id)} />
+            </td>
+          </tr>
+        ))
+      ) : (
+        <tr>
+          <td colSpan="4">No education data found</td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
+
       </div>
     </div>
   );

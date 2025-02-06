@@ -5,31 +5,39 @@
     background-color: #f4f4f4;
 }
 
-
 /* Education content area */
 .education-content {
+    margin-top: 80px;
     margin-left: 250px; /* Reserve space for the sidebar */
-    padding: 30px;
+    padding: 15px; /* Reduced padding above the heading */
     flex-grow: 1;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 /* Heading */
 .education-content h2 {
+    margin-left: 135px;
     font-size: 28px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin */
 }
-
 
 /* Table container styling */
 .table-container {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Max width to keep it centered */
+    margin-left: auto; /* Centering the table */
+    margin-right: auto; /* Centering the table */
+    overflow: auto; /* Add scroll for overflow */
 }
 
+/* Table styling */
 .projects-table {
     width: 100%;
     border-collapse: collapse;
@@ -40,6 +48,8 @@
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Ensure long texts wrap onto multiple lines */
+    white-space: normal;  /* Allow text to wrap inside the cell */
 }
 
 .projects-table th {
@@ -61,7 +71,52 @@
     transition: opacity 0.3s ease-out;
 }
 
-/* Responsive design */
+/* Responsive Design */
+
+/* For screens around 1024px */
+@media (max-width: 1024px) {
+    .education-content {
+        margin-left: 200px; /* Adjusted for medium screens */
+        padding: 15px;
+    }
+
+    .projects-table th, 
+    .projects-table td {
+        font-size: 14px;  /* Adjust text size for medium screens */
+    }
+}
+
+/* For screens around 820px */
+@media (max-width: 820px) {
+
+    .education-content h2 {
+        margin-left: 0px;
+        margin-top: 10px;  
+    }
+    
+
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .education-content {
+        margin-left: 250px;
+        padding: 15px;
+    }
+
+    .table-container {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .projects-table th, 
+    .projects-table td {
+        font-size: 13px;  /* Slightly smaller text */
+        padding: 8px;
+    }
+}
+
+/* For screens around 768px */
 @media (max-width: 768px) {
     .admin-container {
         flex-direction: column;
@@ -69,11 +124,36 @@
 
     .education-content {
         margin-left: 0;
+        padding: 15px;
     }
 
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+    .projects-table th, 
+    .projects-table td {
+        font-size: 12px;  /* Adjust text size for smaller screens */
+        padding: 8px;
+    }
+
+    .projects-table {
+        font-size: 12px;
+    }
+
+    .projects-table th {
+        padding: 8px;
+    }
+}
+
+/* For screens around 480px */
+@media (max-width: 480px) {
+    .education-content h2 {
+        font-size: 24px;
+    }
+
+    .projects-table th, 
+    .projects-table td {
+        font-size: 12px;  /* Adjust text size for very small screens */
+    }
+
+    .projects-table {
+        font-size: 12px;
     }
 }
